@@ -32,9 +32,9 @@ public class MatcherWorker implements Runnable {
 				matcher.findMatches(new FileInputStream(jsonFile));
 				Log.info(String.format("File %s processed with following matches: %s", jsonFile.getName(), matcher.matches));
 			} catch (FileNotFoundException e) {
-				e.printStackTrace();
+				Log.error(String.format("IO exception happens for file: %s. \n Error: %s", jsonFile.getName(), e.getMessage()));
 			} finally {
-				
+
 			}
 		}
 		latch.countDown();

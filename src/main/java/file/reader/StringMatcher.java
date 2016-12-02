@@ -12,6 +12,8 @@ import mappingobject.Record;
 
 public abstract class StringMatcher{
 
+	public abstract void objectChecker(Object obj);
+	
 	public void findMatches(InputStream stream) {
 		try {
 
@@ -28,8 +30,6 @@ public abstract class StringMatcher{
 
 		}
 	}
-
-	public abstract void objectChecker(Object obj);
 
 	public boolean isEmpty(String string) {
 		if (string == null || string.isEmpty()) {

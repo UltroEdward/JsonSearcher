@@ -8,11 +8,14 @@ import mappingobject.Record;
 
 public class RecordStringMatcher extends StringMatcher {
 
+	public static final String FIELD_NAME = "name";
+	public static final String FIELD_AUDIO = "audioLength";
+
 	@SuppressWarnings("serial")
 	public Map<String, AtomicLong> matches = new HashMap<String, AtomicLong>() {
 		{
-			put("audioLength", new AtomicLong(0));
-			put("name", new AtomicLong(0));
+			put(FIELD_AUDIO, new AtomicLong(0));
+			put(FIELD_NAME, new AtomicLong(0));
 		}
 	};
 
@@ -22,10 +25,10 @@ public class RecordStringMatcher extends StringMatcher {
 		String name = ((Record) obj).getName();
 
 		if (isEmpty(audioLength)) {
-			matches.get("audioLength").incrementAndGet();
+			matches.get(FIELD_AUDIO).incrementAndGet();
 		}
 		if (isEmpty(name)) {
-			matches.get("name").incrementAndGet();
+			matches.get(FIELD_NAME).incrementAndGet();
 		}
 	}
 
