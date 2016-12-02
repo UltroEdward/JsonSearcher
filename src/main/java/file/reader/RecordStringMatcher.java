@@ -21,10 +21,10 @@ public class RecordStringMatcher extends StringMatcher {
 		String audioLength = ((Record) obj).getAudioLength();
 		String name = ((Record) obj).getName();
 
-		if (isStringBroken(audioLength)) {
+		if (isEmpty(audioLength)) {
 			matches.get("audioLength").incrementAndGet();
 		}
-		if (isStringBroken(name)) {
+		if (isEmpty(name)) {
 			matches.get("name").incrementAndGet();
 		}
 	}

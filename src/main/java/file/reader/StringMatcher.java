@@ -10,7 +10,7 @@ import com.google.gson.stream.JsonReader;
 
 import mappingobject.Record;
 
-public abstract class StringMatcher {
+public abstract class StringMatcher{
 
 	public void findMatches(InputStream stream) {
 		try {
@@ -31,7 +31,7 @@ public abstract class StringMatcher {
 
 	public abstract void objectChecker(Object obj);
 
-	public boolean isStringBroken(String string) {
+	public boolean isEmpty(String string) {
 		if (string == null || string.isEmpty()) {
 			return true;
 		}
