@@ -4,31 +4,29 @@ import java.util.ArrayList;
 import java.util.List;
 
 public class CollectionUtils {
-	
-	
-	//TODO: fast implementation, need refactor
-	public static <T> List<List<T>> splitList(List <T> listForSplit, int counts){
-		List <List<T>> splittedLists = new ArrayList<>();
-		
-		int commonSize = counts/listForSplit.size();
-		
-		if (commonSize == 0){
-			commonSize = 1;
+
+	// TODO: make this method better?
+	public static <T> List<List<T>> splitList(List<T> listForSplit, int counts) {
+
+		List<List<T>> splittedLists = new ArrayList<>(counts);
+		System.out.println("Actual size: " + listForSplit.size());
+
+		for (int i = 0; i < counts; i++) {
+			splittedLists.add(new ArrayList<T>());
 		}
-		
-		int end = 0;
-		
-		for(int i = 0; i < counts; i++){
-			if(i == counts-1){
-				splittedLists.add(listForSplit.subList(end, listForSplit.size()));
-				break;
+
+		while (listForSplit.size() > 0) {
+
+			for (int i = 0; i < counts; i++) {
+				if (listForSplit.size() == 0) {
+					break;
+				}
+				splittedLists.get(i).add(listForSplit.get(0));
+				listForSplit.remove(0);
 			}
-			splittedLists.add(listForSplit.subList(end, commonSize));
-			end = commonSize;
-			commonSize = commonSize*2;
+
 		}
 		return splittedLists;
-		
 	}
 
 }

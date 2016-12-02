@@ -1,7 +1,6 @@
 package processor;
 
 import java.io.File;
-import java.io.FileInputStream;
 import java.io.FileNotFoundException;
 import java.util.ArrayList;
 import java.util.List;
@@ -10,7 +9,6 @@ import java.util.concurrent.CountDownLatch;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 
-import file.reader.RecordStringMatcher;
 import helpers.CollectionUtils;
 import helpers.FileUtils;
 import helpers.JsonGerenator;
@@ -30,7 +28,7 @@ public class MainProcessor {
 		Log.info(String.format("### Starting processing %d file(-s) in folder [%s] with extension [%s] ###", filesToRead.size(), folferToSearch, DESIRED_EXTENSION));
 		double startTime = System.currentTimeMillis();
 
-		int cores = 4;
+		int cores = 16;
 		final List<List<File>> smallerLists = CollectionUtils.splitList(filesToRead, cores);
 		
 		try{
