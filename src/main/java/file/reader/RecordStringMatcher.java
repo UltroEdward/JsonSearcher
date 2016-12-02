@@ -2,12 +2,19 @@ package file.reader;
 
 import java.util.HashMap;
 import java.util.Map;
+import java.util.concurrent.atomic.AtomicLong;
 
 import mappingobject.Record;
 
 public class RecordStringMatcher extends StringMatcher {
 
-	public Map<String, Integer> matches = new HashMap<String, Integer>() {{put("audioLength", 0); put("name", 0); }};
+	@SuppressWarnings("serial")
+	public Map<String, AtomicLong> matches = new HashMap<String, AtomicLong>() {
+		{
+			put("audioLength", new AtomicLong(0));
+			put("name", new AtomicLong(0));
+		}
+	};
 
 	@Override
 	public void objectChecker(Object obj) {
@@ -15,10 +22,10 @@ public class RecordStringMatcher extends StringMatcher {
 		String name = ((Record) obj).getName();
 
 		if (isStringBroken(audioLength)) {
-			matches.put("audioLength", matches.get("audioLength") +1);
+			matches.get("audioLength").incrementAndGet();
 		}
 		if (isStringBroken(name)) {
-			matches.put("name", matches.get("name") +1);
+			matches.get("name").incrementAndGet();
 		}
 	}
 

@@ -10,10 +10,10 @@ import org.apache.commons.io.FileUtils;
 public class JsonGerenator {
 
 	public static final String SAMPLE_JSON_WITH_PROBLEMS = ""
-			+ "{ \"recordId\" : \"tst\", \"Name\" : \"tst\", \"DateCreated\" : \"tst\", \"DueDate\" : \"tst\", \"DateUpdated\" : \"tst\", \"AudioLength\" : \"tst\", \"Content\" : \"tst\" },"
-			+ "{ \"recordId\" : \"tst\", \"Name\" : \"\", \"DateCreated\" : \"tst\", \"DueDate\" : \"tst\", \"DateUpdated\" : \"tst\", \"AudioLength\" : \"tst\", \"Content\" : \"tst\" },"
 			+ "{ \"recordId\" : \"tst\", \"Name\" : \"tst\", \"DateCreated\" : \"tst\", \"DueDate\" : \"tst\", \"DateUpdated\" : \"tst\", \"AudioLength\" : \"\", \"Content\" : \"tst\" },"
-			+ "{ \"recordId\" : \"tst\", \"Name\" : \"tst\", \"DateCreated\" : \"tst\", \"DueDate\" : \"\", \"DateUpdated\" : \"tst\", \"AudioLength\" : \"tst\", \"Content\" : \"tst\" }";
+			+ "{ \"recordId\" : \"tst\", \"Name\" : \"\", \"DateCreated\" : \"tst\", \"DueDate\" : \"tst\", \"DateUpdated\" : \"tst\", \"AudioLength\" : \"\", \"Content\" : \"tst\" },"
+			+ "{ \"recordId\" : \"tst\", \"Name\" : \"tst\", \"DateCreated\" : \"tst\", \"DueDate\" : \"tst\", \"DateUpdated\" : \"tst\", \"AudioLength\" : \"\", \"Content\" : \"tst\" },"
+			+ "{ \"recordId\" : \"tst\", \"Name\" : \"tst\", \"DateCreated\" : \"tst\", \"DueDate\" : \"\", \"DateUpdated\" : \"tst\", \"AudioLength\" : \"\", \"Content\" : \"tst\" }";
 
 	public void arrayBuilderOld(File file, String jsonBody, int itemsCount) throws IOException {
 		StringBuilder builder = new StringBuilder();
