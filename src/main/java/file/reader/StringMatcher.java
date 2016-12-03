@@ -1,8 +1,10 @@
 package file.reader;
 
+import java.io.BufferedReader;
 import java.io.IOException;
-import java.io.InputStream;
-import java.io.InputStreamReader;
+
+import org.slf4j.Logger;
+import org.slf4j.LoggerFactory;
 
 import com.google.gson.Gson;
 import com.google.gson.GsonBuilder;
@@ -10,14 +12,15 @@ import com.google.gson.stream.JsonReader;
 
 import mappingobject.Record;
 
-public abstract class StringMatcher{
+public abstract class StringMatcher {
+
+	public static final Logger Log = LoggerFactory.getLogger(StringMatcher.class);
 
 	public abstract void objectChecker(Object obj);
-	
-	public void findMatches(InputStream stream) {
-		try {
 
-			JsonReader reader = new JsonReader(new InputStreamReader(stream, "UTF-8"));
+	public void findMatches(BufferedReader inputReader) {
+		try {
+			JsonReader reader = new JsonReader(inputReader);
 			Gson gson = new GsonBuilder().create();
 			reader.beginArray();
 
@@ -27,7 +30,7 @@ public abstract class StringMatcher{
 			}
 			reader.close();
 		} catch (IOException ex) {
-
+			Log.error(String.format("IO exception happens \n Error: %s", ex.getMessage()));
 		}
 	}
 

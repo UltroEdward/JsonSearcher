@@ -10,9 +10,7 @@ public class RecordStringMatcher extends StringMatcher {
 
 	public static final String FIELD_NAME = "name";
 	public static final String FIELD_AUDIO = "audioLength";
-
-	@SuppressWarnings("serial")
-	public Map<String, AtomicLong> matches = new HashMap<String, AtomicLong>() {
+	private Map<String, AtomicLong> matches = new HashMap<String, AtomicLong>() {
 		{
 			put(FIELD_AUDIO, new AtomicLong(0));
 			put(FIELD_NAME, new AtomicLong(0));
@@ -31,5 +29,8 @@ public class RecordStringMatcher extends StringMatcher {
 			matches.get(FIELD_NAME).incrementAndGet();
 		}
 	}
-
+	
+	public Map<String, AtomicLong> getMatches(){
+		return matches;
+	}
 }

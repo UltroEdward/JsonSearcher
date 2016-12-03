@@ -10,6 +10,10 @@ public class Record {
 	private String AudioLength;
 	private String Content;
 
+	public Record() {
+
+	}
+
 	public String getRecordId() {
 		return recordId;
 	}

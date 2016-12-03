@@ -1,8 +1,10 @@
 package workers;
 
+import java.io.BufferedReader;
 import java.io.File;
-import java.io.FileInputStream;
-import java.io.FileNotFoundException;
+import java.io.IOException;
+import java.nio.charset.StandardCharsets;
+import java.nio.file.Files;
 import java.util.List;
 import java.util.concurrent.CountDownLatch;
 
@@ -29,9 +31,13 @@ public class MatcherWorker implements Runnable {
 		for (File jsonFile : filesToWorkWith) {
 			RecordStringMatcher matcher = new RecordStringMatcher();
 			try {
-				matcher.findMatches(new FileInputStream(jsonFile));
-				Log.info(String.format("File %s processed with following matches: %s", jsonFile.getName(), matcher.matches));
-			} catch (FileNotFoundException e) {
+				double startTime = System.currentTimeMillis();
+				BufferedReader reader = Files.newBufferedReader(jsonFile.toPath(), StandardCharsets.UTF_8);
+				// matcher.findMatches(new FileInputStream(jsonFile));
+				matcher.findMatches(reader);
+				Log.info(String.format("File %s processed on [%s] thread with time [%s sec] and following matches: %s ", jsonFile.getName(),
+						Thread.currentThread().getName(), ((System.currentTimeMillis() - startTime) / 1000), matcher.getMatches()));
+			} catch (IOException e) {
 				Log.error(String.format("IO exception happens for file: %s. \n Error: %s", jsonFile.getName(), e.getMessage()));
 			} finally {
 

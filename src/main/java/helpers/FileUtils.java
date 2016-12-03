@@ -8,7 +8,7 @@ import java.util.List;
 
 public class FileUtils {
 
-	public static List<File> getFilesPathes(String folderToSearch, final String desiredFileExtension) {
+	public static List<File> getFilesPaths(String folderToSearch, final String desiredFileExtension) {
 		File dir = new File(folderToSearch);
 		File[] matches = dir.listFiles(new FilenameFilter() {
 			public boolean accept(File dir, String name) {
