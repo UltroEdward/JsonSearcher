@@ -24,8 +24,9 @@ public abstract class StringMatcher {
 			Gson gson = new GsonBuilder().create();
 			reader.beginArray();
 
+			Record object = null;
 			while (reader.hasNext()) {
-				Record object = gson.fromJson(reader, Record.class);
+				object = gson.fromJson(reader, Record.class);
 				objectChecker(object);
 			}
 			reader.close();
