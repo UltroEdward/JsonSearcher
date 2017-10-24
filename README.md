@@ -1,11 +1,10 @@
-<h1>Hi folks! <h1>
+<h1>Json processor<h1>
 
 <span>It's just nothing, but my ideas, how to solve the following task:<span>
 
 <ul>
 <li> As an input you have multiply files in json format </li>
 <li> Every file has at least billion records</li>
-<li> Every record follow an abstract interface { “recordId”, “Name”,“DateCreated”, “DueDate” “DateUpdated”, “AudioLength”, “Content”}</li>
-<li> Task is to find all records without filled “Name” and “AudioLength” and print number of records without filled fields against every field</li>
-<li> Implementation of algorithm should process records <b>as fast as possible</b></li> 
+<li> Every record follow an abstract interface { ï¿½recordIdï¿½, ï¿½Nameï¿½,ï¿½DateCreatedï¿½, ï¿½DueDateï¿½ ï¿½DateUpdatedï¿½, ï¿½AudioLengthï¿½, ï¿½Contentï¿½}</li>
+<li> Task is to find all records without filled ï¿½Nameï¿½ and ï¿½AudioLengthï¿½ and print number of records without filled fields against every field</li>
 </ul>
